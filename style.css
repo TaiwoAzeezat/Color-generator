@@ -305,7 +305,7 @@
     font-weight: 600;
     font-family: "Inter", serif;
     background: linear-gradient(#000f0d, #13010c);
-    color: #ffffffee;
+    color: #ffffff;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -337,7 +337,7 @@
     max-width: 26rem;
     text-align: center;
     font-family: "Inter", serif;
-    color: #585860;
+    color: #48484f;
     font-weight: 600;
     margin: 0 auto;
     line-height: 1.4rem;
