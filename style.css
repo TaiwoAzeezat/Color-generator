@@ -317,7 +317,7 @@
     font-family: "Inter", serif;
     background: #fcf7fc;
     color: #000;
-    border: 0.2rem solid linear-gradient(#000f0d, #13010c);
+    border: 0.02rem solid black;
     cursor: pointer;
     white-space: nowrap;
   }
