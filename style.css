@@ -301,7 +301,7 @@
   #generate {
     padding: 0.8rem 2rem;
     border-radius: 50rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 600;
     font-family: "Inter", serif;
     background: linear-gradient(#000f0d, #13010c);
@@ -333,12 +333,12 @@
     margin: 0 auto;
   }
   .subtext p {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     max-width: 26rem;
     text-align: center;
     font-family: "Inter", serif;
-    color: #48484f;
-    font-weight: 600;
+    color: #585860;
+    font-weight: 500;
     margin: 0 auto;
     line-height: 1.4rem;
   }
