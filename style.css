@@ -97,7 +97,7 @@
   font-family: "Inter", serif;
   background: #fcf7fc;
   color: #000;
-  border: linear-gradient(#000f0d, #13010c);
+  border: 0.2rem solid linear-gradient(#000f0d, #13010c);
   cursor: pointer;
 }
 #generate:hover {
@@ -245,8 +245,7 @@
     font-family: "Inter", serif;
     background: #fcf7fc;
     color: #000;
-    border: linear-gradient(#000f0d, #13010c);
-    cursor: pointer;
+    border: 0.2rem solid linear-gradient(#000f0d, #13010c);
     white-space: nowrap;
   }
   .heading h2 {
@@ -303,7 +302,7 @@
     padding: 0.8rem 2rem;
     border-radius: 50rem;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: "Inter", serif;
     background: linear-gradient(#000f0d, #13010c);
     color: #ffffffee;
@@ -314,11 +313,11 @@
     padding: 0.7rem 2rem;
     border-radius: 50rem;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: "Inter", serif;
     background: #fcf7fc;
     color: #000;
-    border: linear-gradient(#000f0d, #13010c);
+    border: 0.2rem solid linear-gradient(#000f0d, #13010c);
     cursor: pointer;
     white-space: nowrap;
   }
@@ -339,7 +338,7 @@
     text-align: center;
     font-family: "Inter", serif;
     color: #585860;
-    font-weight: 500;
+    font-weight: 600;
     margin: 0 auto;
     line-height: 1.4rem;
   }
