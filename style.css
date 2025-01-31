@@ -14,12 +14,23 @@
   justify-content: start;
   align-items: start;
   padding: 1.5rem 3rem;
+  row-gap: 1rem;
+}
+.header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  background-color: #302c2c;
+  position: fixed;
 }
 .logo {
   font-size: 1rem;
   font-family: "Agbalumo", serif;
   color: linear-gradient(#000f0d, #13010c);
-  margin-bottom: 1.5rem;
 }
 .main {
   width: 100%;
