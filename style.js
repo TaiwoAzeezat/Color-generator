@@ -1,3 +1,6 @@
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+
 const hexadecimalNumberSystem = [
   0,
   1,
@@ -107,4 +110,21 @@ revert.addEventListener("click", function () {
 
   sixthHexCode.textContent = initialHexCodes.sixth;
   sixthColorBox.style.backgroundColor = initialHexCodes.sixth;
+});
+
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme === "dark") {
+  document.body.classList.add("dark-mode");
+  themeIcon.src = "dark.svg";
+}
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    themeIcon.src = "dark.svg";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeIcon.src = "icon.svg";
+    localStorage.setItem("theme", "light");
+  }
 });
