@@ -137,6 +137,7 @@
   color: #ffffffee;
   cursor: pointer;
   border: none;
+  border: 0.02rem solid rgba(255, 255, 255, 0.195);
 }
 #revert {
   padding: 1rem 3rem;
