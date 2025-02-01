@@ -34,7 +34,7 @@
 }
 .main-containerr {
   width: 100%;
-  height: auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -53,7 +53,7 @@
   align-items: center;
   padding: 1rem 2rem;
   position: fixed;
-  border-bottom: 0.5rem solid var(--border-color);
+  border-bottom: 0.02rem solid var(--border-color);
   border-radius: 40rem;
   background-color: var(--header-bg-color);
 }
