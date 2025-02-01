@@ -24,7 +24,7 @@
   --hero-text-color: #ffffffe8;
   --box-text-color: #000000ef;
   --header-bg-color: #161616;
-  --border-color: #ccc;
+  --border-color: #cccccc19;
 }
 .hero-section .heading-subtext h2 {
   color: var(--hero-text-color);
