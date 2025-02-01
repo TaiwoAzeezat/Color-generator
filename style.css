@@ -440,4 +440,15 @@
     border-radius: 16rem;
     background-color: var(--header-bg-color);
   }
+  .main-containerr {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
 }
