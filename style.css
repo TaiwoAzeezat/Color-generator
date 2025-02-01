@@ -136,6 +136,7 @@
   background: linear-gradient(#000f0d, #13010c);
   color: #ffffffee;
   cursor: pointer;
+  border: none;
 }
 #revert {
   padding: 1rem 3rem;
