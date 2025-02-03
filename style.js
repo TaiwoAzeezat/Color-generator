@@ -115,13 +115,13 @@ revert.addEventListener("click", function () {
 const currentTheme = localStorage.getItem("theme");
 if (currentTheme === "dark") {
   document.body.classList.add("dark-mode");
-  themeIcon.src = "dark.svg";
+  themeIcon.src = "moon icon.svg";
 }
 
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
   if (document.body.classList.contains("dark-mode")) {
-    themeIcon.src = "dark.svg";
+    themeIcon.src = "moon icon.svg";
     localStorage.setItem("theme", "dark");
   } else {
     themeIcon.src = "icon.svg";
