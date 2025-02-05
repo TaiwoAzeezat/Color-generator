@@ -131,31 +131,25 @@ themeToggle.addEventListener("click", () => {
 
 document.querySelectorAll("#copy-icon").forEach((icon) => {
   icon.addEventListener("click", function () {
+    // Find the hex code in the same color box
     let hexCode = this.parentElement.querySelector("h1").innerText;
-    let tooltip = this.querySelector(".tooltip");
 
     // Copy to clipboard
     navigator.clipboard.writeText(hexCode).then(() => {
-      // Temporarily show "Copied!" after clicking
-      tooltip.innerText = "Copied!";
-      tooltip.style.opacity = "1";
+      // Change tooltip text temporarily to "Copied!"
+      const tooltip = this.querySelector(".tooltip");
+      tooltip.textContent = "Copied!";
 
-      // After 1 second, hide tooltip and show "Copy Hex Code"
+      // After 1 second, revert the tooltip text back to "Copy Hex Code"
       setTimeout(() => {
-        tooltip.innerText = "Copy Hex Code"; // Reset tooltip text
+        tooltip.textContent = "Copy Hex Code";
       }, 1000);
     });
   });
 
-  // Ensure tooltip resets back to "Copy Hex Code" when hovering
-  icon.addEventListener("mouseenter", function () {
-    let tooltip = this.querySelector(".tooltip");
-    tooltip.style.opacity = "1"; // Ensure it shows on hover
-    tooltip.innerText = "Copy Hex Code"; // Reset text
-  });
-
-  icon.addEventListener("mouseleave", function () {
-    let tooltip = this.querySelector(".tooltip");
-    tooltip.style.opacity = "0"; // Hide tooltip when not hovering
+  // For desktop, show the tooltip on hover
+  icon.addEventListener("mouseover", function () {
+    const tooltip = this.querySelector(".tooltip");
+    tooltip.textContent = "Copy Hex Code";
   });
 });
