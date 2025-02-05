@@ -400,7 +400,7 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     pointer-events: none;
-    visibility: visible;
+    visibility: hidden;
   }
   .code-contr {
     font-size: 0.5rem;
