@@ -128,3 +128,34 @@ themeToggle.addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });
+
+document.querySelectorAll("#copy-icon").forEach((icon) => {
+  icon.addEventListener("click", function () {
+    let hexCode = this.parentElement.querySelector("h1").innerText;
+    let tooltip = this.querySelector(".tooltip");
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(hexCode).then(() => {
+      // Temporarily show "Copied!" after clicking
+      tooltip.innerText = "Copied!";
+      tooltip.style.opacity = "1";
+
+      // After 1 second, hide tooltip and show "Copy Hex Code"
+      setTimeout(() => {
+        tooltip.innerText = "Copy Hex Code"; // Reset tooltip text
+      }, 1000);
+    });
+  });
+
+  // Ensure tooltip resets back to "Copy Hex Code" when hovering
+  icon.addEventListener("mouseenter", function () {
+    let tooltip = this.querySelector(".tooltip");
+    tooltip.style.opacity = "1"; // Ensure it shows on hover
+    tooltip.innerText = "Copy Hex Code"; // Reset text
+  });
+
+  icon.addEventListener("mouseleave", function () {
+    let tooltip = this.querySelector(".tooltip");
+    tooltip.style.opacity = "0"; // Hide tooltip when not hovering
+  });
+});

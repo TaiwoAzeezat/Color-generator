@@ -22,7 +22,7 @@
   --text-color: #ffffff;
   --hero-subtext-color: rgba(255, 255, 255, 0.777);
   --hero-text-color: #ffffffe8;
-  --box-text-color: #000000ef;
+  --box-text-color: #000;
   --header-bg-color: #161616;
   --border-color: #cccccc19;
 }
@@ -182,6 +182,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
+  row-gap: 3rem;
 }
 .second-color-box {
   background-color: #f7eef9;
@@ -192,6 +193,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
+  row-gap: 3rem;
 }
 .third-color-box {
   background-color: #f0dcf2;
@@ -202,6 +204,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
+  row-gap: 3rem;
 }
 .fourth-color-box {
   background-color: #e6c1e6;
@@ -212,6 +215,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
+  row-gap: 3rem;
 }
 .fifth-color-box {
   background-color: #d69cd6;
@@ -222,9 +226,10 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
+  row-gap: 3rem;
 }
 .sixth-color-box {
-  background-color: #c074c1;
+  background-color: #d69cd6;
   padding: 2rem 4rem;
   height: 19rem;
   border-radius: 0.8rem;
@@ -232,7 +237,34 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
+  row-gap: 3rem;
 }
+
+#copy-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: black;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+#copy-icon:hover .tooltip {
+  opacity: 1; /* Show "Copy Hex Code" on hover */
+}
+
 /* media queries */
 @media (min-width: 1024px) {
   .first-color-box,
@@ -268,6 +300,10 @@
     justify-content: flex-end;
     align-items: center;
     word-wrap: break-word;
+  }
+  #copy-icon {
+    right: 2rem;
+    bottom: 1rem;
   }
 
   .code-contr {
@@ -340,9 +376,14 @@
     height: 5rem;
     padding: 1rem 2rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #copy-icon {
+    position: absolute;
+    cursor: pointer;
+    right: 4rem;
   }
 
   .code-contr {
