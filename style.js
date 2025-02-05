@@ -130,31 +130,26 @@ themeToggle.addEventListener("click", () => {
 });
 
 document.querySelectorAll("#copy-icon").forEach((icon) => {
-  // Handle click event for both desktop and mobile
   icon.addEventListener("click", function () {
     // Find the hex code in the same color box
     let hexCode = this.parentElement.querySelector("h1").innerText;
 
     // Copy to clipboard
     navigator.clipboard.writeText(hexCode).then(() => {
-      const tooltip = this.querySelector(".tooltip");
-
-      // For mobile, show only "Copied!" after the click
+      // Change tooltip text temporarily to "Copied!"
+      let tooltip = this.querySelector(".tooltip");
       tooltip.textContent = "Copied!";
 
-      // After 1 second, revert the tooltip text back to "Copy Hex Code" for future clicks
+      // Keep it visible
+      tooltip.style.visibility = "visible";
+      tooltip.style.opacity = "1";
+
+      // After 1 second, revert back to "Copy Hex Code" for desktop (but not on mobile)
       setTimeout(() => {
-        tooltip.textContent = "Copy Hex Code";
+        if (window.innerWidth > 768) {
+          tooltip.textContent = "Copy Hex Code";
+        }
       }, 1000);
     });
   });
-
-  // For desktop, show "Copy Hex Code" on hover
-  if (window.innerWidth > 768) {
-    // Only trigger hover on desktop
-    icon.addEventListener("mouseover", function () {
-      const tooltip = this.querySelector(".tooltip");
-      tooltip.textContent = "Copy Hex Code";
-    });
-  }
 });
