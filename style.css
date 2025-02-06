@@ -259,7 +259,7 @@
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   pointer-events: none;
-  visibility: visible;
+  visibility: hidden;
 }
 
 #copy-icon:hover .tooltip {
@@ -386,22 +386,18 @@
     cursor: pointer;
     right: 4rem;
   }
-  .tooltip {
-    position: absolute;
-    background-color: black;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 5px;
-    font-size: 12px;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    pointer-events: none;
-    visibility: hidden;
+  
+  .copy-icon[data-tooltip="Copied!"] .tooltip {
+    visibility: visible !important;
+    opacity: 1 !important;
   }
+
+  /* Tooltip will disappear after "Copied!" is shown */
+  .copy-icon[data-tooltip=""] .tooltip {
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
   .code-contr {
     font-size: 0.5rem;
     white-space: normal;

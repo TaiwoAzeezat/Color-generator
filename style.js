@@ -136,20 +136,15 @@ document.querySelectorAll("#copy-icon").forEach((icon) => {
 
     // Copy to clipboard
     navigator.clipboard.writeText(hexCode).then(() => {
-      // Change tooltip text temporarily to "Copied!"
-      let tooltip = this.querySelector(".tooltip");
-      tooltip.textContent = "Copied!";
+      // Change tooltip text to 'Copied!' when clicked
+      this.setAttribute("data-tooltip", "Copied!");
 
-      // Keep it visible
-      tooltip.style.visibility = "visible";
-      tooltip.style.opacity = "1";
-
-      // After 1 second, revert back to "Copy Hex Code" for desktop (but not on mobile)
-      setTimeout(() => {
-        if (window.innerWidth > 768) {
-          tooltip.textContent = "Copy Hex Code";
-        }
-      }, 1000);
+      // Make the tooltip disappear after 1 second on mobile only
+      if (window.innerWidth <= 768) {
+        setTimeout(() => {
+          this.setAttribute("data-tooltip", ""); // Reset tooltip text after 1 second
+        }, 1000); // Tooltip disappears after 1 second
+      }
     });
   });
 });
