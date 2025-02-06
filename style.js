@@ -129,19 +129,34 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
-document.querySelectorAll(".copy-icon").forEach((icon) => {
-  icon.addEventListener("click", function () {
-    let hexCode = this.parentElement.querySelector("h1").innerText;
+document.addEventListener("DOMContentLoaded", function () {
+  const copyIcon = document.getElementById("copy-icon");
+  const tooltip = copyIcon.querySelector(".tooltip");
+  const hexCode = document.getElementById("first-hex-code").innerText;
 
-    // Copy to clipboard
+  copyIcon.addEventListener("click", function () {
     navigator.clipboard.writeText(hexCode).then(() => {
-      // Set the tooltip to "Copied!" only on click
-      this.setAttribute("data-tooltip", "Copied!");
+      tooltip.innerText = "Copied!";
+      tooltip.style.opacity = "1";
 
-      // Make the "Copied!" tooltip disappear after 1 second (for mobile only)
       setTimeout(() => {
-        this.setAttribute("data-tooltip", ""); // Reset tooltip to original state
-      }, 1000); // 1-second timeout for mobile
+        tooltip.style.opacity = "0";
+      }, 1500); // Hide "Copied!" after 1.5 seconds
+
+      setTimeout(() => {
+        tooltip.innerText = "Copy hex code";
+      }, 2000); // Reset text, but keep opacity 0
     });
+  });
+
+  // Show tooltip on hover **only if not currently "Copied!"**
+  copyIcon.addEventListener("mouseenter", function () {
+    if (tooltip.innerText !== "Copied!") {
+      tooltip.style.opacity = "1";
+    }
+  });
+
+  copyIcon.addEventListener("mouseleave", function () {
+    tooltip.style.opacity = "0";
   });
 });
