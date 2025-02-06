@@ -484,5 +484,6 @@
   #copy-icon {
     position: absolute;
     right: 4rem;
+    color: #000000cd;
   }
 }
