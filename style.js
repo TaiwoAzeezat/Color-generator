@@ -147,6 +147,13 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           tooltip.style.opacity = "0"; // Hide tooltip after 1.5s
         }, 1500);
+
+        if (!isMobile()) {
+          // Reset text only for desktop
+          setTimeout(() => {
+            tooltip.innerText = "Copy hex code";
+          }, 2000);
+        }
       });
     });
 
