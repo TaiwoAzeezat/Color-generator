@@ -165,14 +165,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  function isMobileDevice() {
-    return window.matchMedia("(max-width: 588x)").matches;
-  }
-
-  if (isMobileDevice()) {
-    copyIcons.forEach((copyIcon) => {
-      const tooltip = copyIcon.querySelector(".tooltip");
-      tooltip.style.display = "copied";
-    });
-  }
-});
+ 
