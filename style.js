@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isMobileDevice()) {
     copyIcons.forEach((copyIcon) => {
       const tooltip = copyIcon.querySelector(".tooltip");
-      tooltip.style.display = "none";
+      tooltip.style.display = "copied";
     });
   }
 });
