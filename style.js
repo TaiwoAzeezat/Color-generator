@@ -128,35 +128,51 @@ themeToggle.addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });
-
 document.addEventListener("DOMContentLoaded", function () {
-  const copyIcon = document.getElementById("copy-icon");
-  const tooltip = copyIcon.querySelector(".tooltip");
-  const hexCode = document.getElementById("first-hex-code").innerText;
+  const copyIcons = document.querySelectorAll("#copy-icon");
 
-  copyIcon.addEventListener("click", function () {
-    navigator.clipboard.writeText(hexCode).then(() => {
-      tooltip.innerText = "Copied!";
-      tooltip.style.opacity = "1";
+  copyIcons.forEach((copyIcon) => {
+    const tooltip = document.createElement("div");
+    tooltip.className = "tooltip";
+    tooltip.textContent = "Copy hex code";
+    copyIcon.appendChild(tooltip);
 
-      setTimeout(() => {
+    copyIcon.addEventListener("mouseenter", function () {
+      if (!this.classList.contains("copied")) {
+        tooltip.textContent = "Copy hex code";
+        tooltip.style.opacity = "1";
+      }
+    });
+
+    copyIcon.addEventListener("mouseleave", function () {
+      if (!this.classList.contains("copied")) {
         tooltip.style.opacity = "0";
-      }, 1500); // Hide "Copied!" after 1.5 seconds
+      }
+    });
 
-      setTimeout(() => {
-        tooltip.innerText = "Copy hex code";
-      }, 2000); // Reset text, but keep opacity 0
+    copyIcon.addEventListener("click", function () {
+      const hexCode = this.nextElementSibling.querySelector("h1").textContent;
+      navigator.clipboard.writeText(hexCode).then(() => {
+        this.classList.add("copied");
+        tooltip.textContent = "Copied!";
+        tooltip.style.opacity = "1";
+
+        setTimeout(() => {
+          tooltip.style.opacity = "0";
+          this.classList.remove("copied");
+        }, 1500);
+      });
     });
   });
 
-  // Show tooltip on hover **only if not currently "Copied!"**
-  copyIcon.addEventListener("mouseenter", function () {
-    if (tooltip.innerText !== "Copied!") {
-      tooltip.style.opacity = "1";
-    }
-  });
+  function isMobileDevice() {
+    return window.matchMedia("(max-width: 588x)").matches;
+  }
 
-  copyIcon.addEventListener("mouseleave", function () {
-    tooltip.style.opacity = "0";
-  });
+  if (isMobileDevice()) {
+    copyIcons.forEach((copyIcon) => {
+      const tooltip = copyIcon.querySelector(".tooltip");
+      tooltip.style.display = "none";
+    });
+  }
 });
