@@ -476,9 +476,12 @@
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
   }
-
   .tooltip {
     position: absolute;
+    top: 30px;
+  }
+  .tooltip.hide {
+    opacity: 0;
   }
 
   #copy-icon {

@@ -128,56 +128,38 @@ themeToggle.addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   const copyIcons = document.querySelectorAll("#copy-icon");
 
-  // Get hex codes by their IDs
-  const firstHexCode = document.getElementById("first-hex-code").innerText;
-  const secondHexCode = document.getElementById("second-hex-code").innerText;
-  const thirdHexCode = document.getElementById("third-hex-code").innerText;
-  const fourthHexCode = document.getElementById("fourth-hex-code").innerText;
-  const fifthHexCode = document.getElementById("fifth-hex-code").innerText;
-  const sixthHexCode = document.getElementById("sixth-hex-code").innerText;
+  function isMobile() {
+    return window.innerWidth <= 768; // Adjust breakpoint if needed
+  }
 
-  // Array of hex codes to loop through
-  const hexCodes = [
-    firstHexCode,
-    secondHexCode,
-    thirdHexCode,
-    fourthHexCode,
-    fifthHexCode,
-    sixthHexCode,
-  ];
-
-  copyIcons.forEach((copyIcon, index) => {
+  copyIcons.forEach((copyIcon) => {
     const tooltip = copyIcon.querySelector(".tooltip");
-    const hexCode = hexCodes[index]; // Get the corresponding hex code for each copy icon
+    const hexCode = copyIcon.nextElementSibling.querySelector("h1").innerText;
 
     copyIcon.addEventListener("click", function () {
       navigator.clipboard.writeText(hexCode).then(() => {
         tooltip.innerText = "Copied!";
-        tooltip.classList.add("show");
+        tooltip.style.opacity = "1";
 
         setTimeout(() => {
-          tooltip.classList.remove("show");
-        }, 1500); // Hide "Copied!" after 1.5 seconds
-
-        setTimeout(() => {
-          tooltip.innerText = "Copy hex code";
-        }, 2000); // Reset text, but keep opacity 0
+          tooltip.style.opacity = "0"; // Hide tooltip after 1.5s
+        }, 1500);
       });
     });
 
-    // Show tooltip on hover **only if not currently "Copied!"**
-    copyIcon.addEventListener("mouseenter", function () {
-      if (tooltip.innerText !== "Copied!") {
-        tooltip.classList.add("show");
-      }
-    });
+    if (!isMobile()) {
+      // Desktop behavior: Reset text on hover
+      copyIcon.addEventListener("mouseenter", function () {
+        tooltip.innerText = "Copy hex code";
+        tooltip.style.opacity = "1";
+      });
 
-    copyIcon.addEventListener("mouseleave", function () {
-      tooltip.classList.remove("show");
-    });
+      copyIcon.addEventListener("mouseleave", function () {
+        tooltip.style.opacity = "0";
+      });
+    }
   });
 });
