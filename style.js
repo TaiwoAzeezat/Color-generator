@@ -129,22 +129,19 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
-document.querySelectorAll("#copy-icon").forEach((icon) => {
+document.querySelectorAll(".copy-icon").forEach((icon) => {
   icon.addEventListener("click", function () {
-    // Find the hex code in the same color box
     let hexCode = this.parentElement.querySelector("h1").innerText;
 
     // Copy to clipboard
     navigator.clipboard.writeText(hexCode).then(() => {
-      // Change tooltip text to 'Copied!' when clicked
+      // Set the tooltip to "Copied!" only on click
       this.setAttribute("data-tooltip", "Copied!");
 
-      // Make the tooltip disappear after 1 second on mobile only
-      if (window.innerWidth <= 768) {
-        setTimeout(() => {
-          this.setAttribute("data-tooltip", ""); // Reset tooltip text after 1 second
-        }, 1000); // Tooltip disappears after 1 second
-      }
+      // Make the "Copied!" tooltip disappear after 1 second (for mobile only)
+      setTimeout(() => {
+        this.setAttribute("data-tooltip", ""); // Reset tooltip to original state
+      }, 1000); // 1-second timeout for mobile
     });
   });
 });

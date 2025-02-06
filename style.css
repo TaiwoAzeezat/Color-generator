@@ -263,7 +263,8 @@
 }
 
 #copy-icon:hover .tooltip {
-  opacity: 1; /* Show "Copy Hex Code" on hover */
+  opacity: 1;
+  visibility: visible;
 }
 
 /* media queries */
@@ -386,36 +387,31 @@
     cursor: pointer;
     right: 4rem;
   }
-  
+
   .copy-icon[data-tooltip="Copied!"] .tooltip {
     visibility: visible !important;
     opacity: 1 !important;
+    transition: opacity 0.5s ease-out !important; /* Brief visibility */
   }
+}
+.code-contr {
+  font-size: 0.5rem;
+  white-space: normal;
+  text-align: start;
+}
+#generate {
+  padding: 0.7rem 2rem;
+  border-radius: 50rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Inter", serif;
+  background: linear-gradient(#000f0d, #13010c);
+  color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 0.02rem solid rgba(255, 255, 255, 0.892);
+}
 
-  /* Tooltip will disappear after "Copied!" is shown */
-  .copy-icon[data-tooltip=""] .tooltip {
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
-}
-  .code-contr {
-    font-size: 0.5rem;
-    white-space: normal;
-    text-align: start;
-  }
-  #generate {
-    padding: 0.7rem 2rem;
-    border-radius: 50rem;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: "Inter", serif;
-    background: linear-gradient(#000f0d, #13010c);
-    color: #ffffff;
-    cursor: pointer;
-    white-space: nowrap;
-    border: 0.02rem solid rgba(255, 255, 255, 0.892);
-  }
-}
 #revert {
   padding: 0.7rem 2rem;
   border-radius: 50rem;
