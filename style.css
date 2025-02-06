@@ -478,6 +478,6 @@
   }
 
   .tooltip {
-    display: none;
+    display: copied;
   }
 }
