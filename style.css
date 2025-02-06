@@ -480,8 +480,9 @@
   .tooltip {
     display: copied;
   }
+
   #copy-icon {
     position: absolute;
-    cursor: pointer;
+    right: 4rem;
   }
 }
