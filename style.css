@@ -478,7 +478,7 @@
   }
 
   .tooltip {
-    display: none;
+    position: absolute;
   }
 
   #copy-icon {

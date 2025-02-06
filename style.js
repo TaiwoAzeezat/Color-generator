@@ -130,7 +130,6 @@ themeToggle.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Get all the copy icons by their ID
   const copyIcons = document.querySelectorAll("#copy-icon");
 
   // Get hex codes by their IDs
@@ -158,10 +157,10 @@ document.addEventListener("DOMContentLoaded", function () {
     copyIcon.addEventListener("click", function () {
       navigator.clipboard.writeText(hexCode).then(() => {
         tooltip.innerText = "Copied!";
-        tooltip.style.opacity = "1";
+        tooltip.classList.add("show");
 
         setTimeout(() => {
-          tooltip.style.opacity = "0";
+          tooltip.classList.remove("show");
         }, 1500); // Hide "Copied!" after 1.5 seconds
 
         setTimeout(() => {
@@ -173,12 +172,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show tooltip on hover **only if not currently "Copied!"**
     copyIcon.addEventListener("mouseenter", function () {
       if (tooltip.innerText !== "Copied!") {
-        tooltip.style.opacity = "1";
+        tooltip.classList.add("show");
       }
     });
 
     copyIcon.addEventListener("mouseleave", function () {
-      tooltip.style.opacity = "0";
+      tooltip.classList.remove("show");
     });
   });
 });
