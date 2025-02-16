@@ -166,7 +166,6 @@
   align-items: start;
   column-gap: 0.5rem;
   color: var(--box-text-color);
-  position: relative;
 }
 .code-contr {
   font-size: 0.6rem;
